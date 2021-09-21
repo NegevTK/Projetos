@@ -1,0 +1,7 @@
+body {
+  background-image: url("../imagens/fundo.jpg");
+  width: 100%;
+  background-size: cover;
+  margin:0%;
+  padding: 0%;
+}
