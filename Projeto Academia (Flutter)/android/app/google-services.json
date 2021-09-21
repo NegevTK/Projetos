@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "724742776035",
+    "project_id": "crossvita-academia",
+    "storage_bucket": "crossvita-academia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724742776035:android:f1054fc296cc5fca3e51d6",
+        "android_client_info": {
+          "package_name": "com.crossvita.academia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724742776035-0o39l9ejbnua2d44k3i0c3ka4a2tckhc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crossvita.academia",
+            "certificate_hash": "f0bc34dec0e8e6b8ca2133141de291c97c8e0ddc"
+          }
+        },
+        {
+          "client_id": "724742776035-prsa0q3pqtk978iqpan7e1jjjmhgdqlb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5j3g2uHqhioVkva1OldwiJofqXJoW0zo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724742776035-prsa0q3pqtk978iqpan7e1jjjmhgdqlb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
