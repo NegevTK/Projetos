@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:app_portal_academico/model/categorias_model.dart';
 import 'package:flutter/material.dart';
 
@@ -8,18 +10,30 @@ class AppTelaMenuController {
     ltCategoria = [];
     try {
       Categoria eventos = Categoria(
-          icone: Icons.lightbulb,
-          rota: '',
-          nome: 'Eventos\nSemanas Acadêmicas');
+          icone: Icons.lightbulb, rota: '', nome: 'Semanas Acadêmicas');
       ltCategoria.add(eventos);
 
       Categoria atividades = Categoria(
-          icone: Icons.check, rota: '', nome: 'Atividades\nComplementares');
+          icone: Icons.check, rota: '', nome: 'Atividades Complementares');
       ltCategoria.add(atividades);
 
       Categoria aplicativos = Categoria(
-          icone: Icons.window_sharp, rota: '', nome: 'Aplicativos\nMicrosoft');
+          icone: Icons.window_sharp, rota: '', nome: 'Aplicativos Microsoft');
       ltCategoria.add(aplicativos);
+
+      Categoria campanha = Categoria(
+          icone: Icons.adf_scanner_outlined,
+          rota: '',
+          nome: 'Impressões e Xerox');
+      ltCategoria.add(campanha);
+
+      Categoria boleto = Categoria(
+          icone: Icons.attach_money_outlined, rota: '', nome: 'Boleto 2ª via');
+      ltCategoria.add(boleto);
+
+      Categoria horariosAulas = Categoria(
+          icone: Icons.timer_outlined, rota: '', nome: 'Horário das Aulas');
+      ltCategoria.add(horariosAulas);
     } catch (e) {
       print('AppTelaMenuController - carregaCategoria: $e');
     }

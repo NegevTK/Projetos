@@ -68,7 +68,7 @@ class _AppTelaLoginState extends State<AppTelaLogin> {
   Widget logo() {
     return Padding(
       padding: const EdgeInsets.only(
-          left: 18.0, right: 18.0, top: 50.0, bottom: 30.0),
+          left: 30.0, right: 30.0, top: 50.0, bottom: 30.0),
       child: Container(
         height: 100,
         width: double.infinity,
@@ -141,15 +141,13 @@ class _AppTelaLoginState extends State<AppTelaLogin> {
       child: TextFormField(
         obscureText: labelText == 'Senha' ? true : false,
         decoration: InputDecoration(
-            fillColor: Colors.white,
-            filled: true,
-            labelText: labelText,
-            hintText: hintText,
-            prefixIcon: Icon(
-              icone,
-              color: Colors.orange[700],
-            ),
-            border: OutlineInputBorder()),
+          labelText: labelText,
+          hintText: hintText,
+          prefixIcon: Icon(
+            icone,
+            color: Colors.orange[700],
+          ),
+        ),
         controller: controller,
         onFieldSubmitted: (value) {
           _formKey.currentState!.validate();

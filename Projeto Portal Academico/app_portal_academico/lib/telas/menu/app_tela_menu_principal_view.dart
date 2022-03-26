@@ -26,7 +26,7 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text('Area do Aluno'),
+          title: Text('Área do Aluno'),
           centerTitle: true,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -44,7 +44,10 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
           ],
         ),
         body: SingleChildScrollView(
-          child: corpoMenuPrincipal(),
+          child: Column(children: [
+            textFormField(icone: Icons.search, hintText: 'Pesquisar'),
+            corpoMenuPrincipal()
+          ]),
         ),
       ),
     );
@@ -73,10 +76,44 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
     );
   }
 
+  Widget textFormField(
+      {TextEditingController? controller,
+      String? labelText,
+      String? hintText,
+      IconData? icone}) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: TextFormField(
+        obscureText: labelText == 'Senha' ? true : false,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+          labelText: labelText,
+          hintText: hintText,
+          suffixIcon: Icon(
+            icone,
+          ),
+        ),
+        controller: controller,
+        onFieldSubmitted: (value) {},
+        validator: (value) {
+          if (value == null || value == '') {
+            return '*Campo obrigatório!';
+          } else {
+            return null;
+          }
+        },
+      ),
+    );
+  }
+
   Widget categoria(Categoria item) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.white70, width: 2),
+          borderRadius: BorderRadius.circular(10),
+        ),
         elevation: 5.0,
         shadowColor: Color.fromARGB(255, 3, 36, 63),
         color: Color.fromARGB(255, 1, 59, 88),
