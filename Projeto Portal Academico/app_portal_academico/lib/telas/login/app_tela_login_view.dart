@@ -48,34 +48,35 @@ class _AppTelaLoginState extends State<AppTelaLogin> {
   }
 
   Widget bodyLogin() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          logo(),
-          Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  camposText(),
-                  buttonAcess(),
-                ],
-              )),
-        ],
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            logo(),
+            Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    camposText(),
+                    buttonAcess(),
+                  ],
+                )),
+          ],
+        ),
       ),
     );
   }
 
   Widget logo() {
     return Padding(
-      padding: const EdgeInsets.only(
-          left: 30.0, right: 30.0, top: 40.0, bottom: 30.0),
+      padding: const EdgeInsets.only(bottom: 80.0),
       child: Container(
-        height: 100,
+        height: 80,
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/logo.png"),
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.contain,
           ),
         ),
       ),

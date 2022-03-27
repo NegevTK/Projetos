@@ -8,8 +8,8 @@
         {
             "name": "app_portal_academico",
             "request": "launch",
-            "program": "lib/main/main.dart",
-            "type": "dart"
+            "program": "lib/main.dart",
+            "type": "dart",
         },
     
     

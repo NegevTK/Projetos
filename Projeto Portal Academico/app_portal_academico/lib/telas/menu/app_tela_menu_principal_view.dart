@@ -151,10 +151,13 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
               color: Colors.white,
               size: 60.0,
             ),
-            Text(
-              item.nome,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 18.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                item.nome,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white, fontSize: 18.0),
+              ),
             ),
           ],
         ),
