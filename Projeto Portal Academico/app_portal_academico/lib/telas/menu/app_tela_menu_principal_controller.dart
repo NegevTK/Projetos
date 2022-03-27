@@ -4,9 +4,11 @@ import 'package:app_portal_academico/model/categorias_model.dart';
 import 'package:flutter/material.dart';
 
 class AppTelaMenuController {
+  List<Categoria> items = [];
   List<Categoria> ltCategoria = [];
 
   Future<List<Categoria>> carregaCategoria() async {
+    items = [];
     ltCategoria = [];
     try {
       Categoria eventos = Categoria(
@@ -34,6 +36,8 @@ class AppTelaMenuController {
       Categoria horariosAulas = Categoria(
           icone: Icons.timer_outlined, rota: '', nome: 'Horário das Aulas');
       ltCategoria.add(horariosAulas);
+
+      items.addAll(ltCategoria);
     } catch (e) {
       print('AppTelaMenuController - carregaCategoria: $e');
     }

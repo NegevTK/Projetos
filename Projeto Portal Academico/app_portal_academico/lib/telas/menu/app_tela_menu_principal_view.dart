@@ -14,6 +14,12 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
       Modular.get<AppTelaMenuController>();
 
   @override
+  void initState() {
+    super.initState();
+    _menuController.carregaCategoria();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints.expand(),
@@ -44,34 +50,50 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
           ],
         ),
         body: SingleChildScrollView(
-          child: Column(children: [
-            textFormField(icone: Icons.search, hintText: 'Pesquisar'),
-            corpoMenuPrincipal()
-          ]),
+          child: Column(
+            children: [
+              textFormField(icone: Icons.search, hintText: 'Pesquisar'),
+              corpoMenuPrincipal()
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget corpoMenuPrincipal() {
-    return FutureBuilder(
-      future: _menuController.carregaCategoria(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return GridView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            itemCount: _menuController.ltCategoria.length,
-            itemBuilder: (context, index) {
-              return categoria(_menuController.ltCategoria[index]);
-            },
-          );
-        } else {
-          return Text('erro');
+  void pesquisaCategoria(String query) {
+    List<Categoria> pesquisaLista = [];
+    pesquisaLista.addAll(_menuController.ltCategoria);
+    if (query.isNotEmpty) {
+      List<Categoria> pesquisaListaData = [];
+      for (var item in pesquisaLista) {
+        if (item.nome.toUpperCase().contains(query)) {
+          pesquisaListaData.add(item);
         }
+      }
+      setState(() {
+        _menuController.items.clear();
+        _menuController.items.addAll(pesquisaListaData);
+      });
+      return;
+    } else {
+      setState(() {
+        _menuController.items.clear();
+        _menuController.items.addAll(_menuController.ltCategoria);
+      });
+    }
+  }
+
+  Widget corpoMenuPrincipal() {
+    return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
+      itemCount: _menuController.items.length,
+      itemBuilder: (context, index) {
+        return categoria(_menuController.items[index]);
       },
     );
   }
@@ -94,7 +116,9 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
           ),
         ),
         controller: controller,
-        onFieldSubmitted: (value) {},
+        onChanged: (value) {
+          pesquisaCategoria(value.toUpperCase());
+        },
         validator: (value) {
           if (value == null || value == '') {
             return '*Campo obrigatório!';

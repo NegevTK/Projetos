@@ -68,7 +68,7 @@ class _AppTelaLoginState extends State<AppTelaLogin> {
   Widget logo() {
     return Padding(
       padding: const EdgeInsets.only(
-          left: 30.0, right: 30.0, top: 50.0, bottom: 30.0),
+          left: 30.0, right: 30.0, top: 40.0, bottom: 30.0),
       child: Container(
         height: 100,
         width: double.infinity,
@@ -121,7 +121,13 @@ class _AppTelaLoginState extends State<AppTelaLogin> {
             Navigator.pushNamed(context, TELA_MENU_PRINCIPAL);
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Dados inválidos!')),
+              const SnackBar(
+                backgroundColor: Color.fromARGB(255, 3, 36, 63),
+                content: Text(
+                  'Dados inválidos!',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             );
             _loginController.limpaCampos();
             _formKey.currentState!.validate();
