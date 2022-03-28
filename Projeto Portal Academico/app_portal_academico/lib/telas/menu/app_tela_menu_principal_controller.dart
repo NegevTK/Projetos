@@ -37,6 +37,10 @@ class AppTelaMenuController {
           icone: Icons.timer_outlined, rota: '', nome: 'Horário das Aulas');
       ltCategoria.add(horariosAulas);
 
+      Categoria notasFaltas = Categoria(
+          icone: Icons.note_alt_outlined, nome: 'Notas e Faltas', rota: '');
+      ltCategoria.add(notasFaltas);
+
       items.addAll(ltCategoria);
     } catch (e) {
       print('AppTelaMenuController - carregaCategoria: $e');

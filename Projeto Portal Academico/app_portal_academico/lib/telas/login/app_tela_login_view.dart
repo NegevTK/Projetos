@@ -147,6 +147,7 @@ class _AppTelaLoginState extends State<AppTelaLogin> {
       padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 30.0),
       child: TextFormField(
         obscureText: labelText == 'Senha' ? true : false,
+        keyboardType: TextInputType.number,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
