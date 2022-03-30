@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:app_portal_academico/model/categorias_model.dart';
+import 'package:app_portal_academico/util/app_telas_navegacao.dart';
 import 'package:flutter/material.dart';
 
 class AppTelaMenuController {
@@ -38,7 +39,9 @@ class AppTelaMenuController {
       ltCategoria.add(horariosAulas);
 
       Categoria notasFaltas = Categoria(
-          icone: Icons.note_alt_outlined, nome: 'Notas e Faltas', rota: '');
+          icone: Icons.note_alt_outlined,
+          nome: 'Notas e Faltas',
+          rota: TELA_NOTAS_FALTAS);
       ltCategoria.add(notasFaltas);
 
       items.addAll(ltCategoria);

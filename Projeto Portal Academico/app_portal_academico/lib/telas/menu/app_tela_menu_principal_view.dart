@@ -133,34 +133,43 @@ class _AppTelaMenuPrincipalState extends State<AppTelaMenuPrincipal> {
   Widget categoria(Categoria item) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: Colors.white70, width: 2),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 5.0,
-        shadowColor: Color.fromARGB(255, 3, 36, 63),
-        color: Color.fromARGB(255, 1, 59, 88),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            Icon(
-              item.icone,
-              color: Colors.white,
-              size: 60.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                item.nome,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 18.0),
+      child: GestureDetector(
+        child: Card(
+          shape: RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white70, width: 2),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          elevation: 5.0,
+          shadowColor: Color.fromARGB(255, 3, 36, 63),
+          color: Color.fromARGB(255, 1, 59, 88),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              Icon(
+                item.icone,
+                color: Colors.white,
+                size: 60.0,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  item.nome,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 18.0),
+                ),
+              ),
+            ],
+          ),
         ),
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            item.rota,
+            arguments: {'nome_curso': item.nome.toString()},
+          );
+        },
       ),
     );
   }
