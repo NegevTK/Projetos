@@ -13,6 +13,11 @@ class Aluno {
         curso = json['nomeCurso'],
         serie = json['serieCurso'];
 
-  Map<String, dynamic> toJson() =>
-      {'ra': ra, 'senha': senha, 'nome': nome, 'curso': curso, 'serie': serie};
+  Map<String, dynamic> toJson() => {
+        'ra': ra,
+        'senha': senha,
+        'nome': nome,
+        'curso': curso,
+        'serie': serie,
+      };
 }

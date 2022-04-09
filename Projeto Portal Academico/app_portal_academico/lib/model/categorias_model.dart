@@ -4,5 +4,9 @@ class Categoria {
   String nome;
   IconData icone;
   String rota;
-  Categoria({required this.icone, required this.nome, required this.rota});
+  Categoria({
+    required this.icone,
+    required this.nome,
+    required this.rota,
+  });
 }
