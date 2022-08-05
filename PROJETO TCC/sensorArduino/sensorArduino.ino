@@ -22,7 +22,7 @@ void loop() {
   }
   String info = (String(my_dht.readTemperature()) + ":" + String(my_dht.readHumidity()) + ":" + String(percent));
   Serial.println(info);
-  delay(10000);
+  delay(1000);
 }
 
 int convertToPercent(int value)
